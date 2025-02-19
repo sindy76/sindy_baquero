@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 .venv
 venv
+sindy_baquero.egg-info
 
 __pycache__/
 *.py[cod]

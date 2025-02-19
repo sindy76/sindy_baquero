@@ -3,7 +3,6 @@
 import json
 
 
-
 class Ingestiones():
     def __init__(self):
         self.ruta_static = "G:/P_Paola/IUD/Analitica de dato/Reposotorio/sindy_baquero/SRC/pad_2025/Static"
@@ -63,8 +62,7 @@ def escribir_txt(self,nombre,datos):
 
 
 
-
-inges = Ingestiones() 
+inges= Ingestiones()
 datos_json = inges.leer_json()
 print(datos_json)
 print("************************************************************")
