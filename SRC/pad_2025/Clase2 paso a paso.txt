@@ -1,0 +1,6 @@
+
+1 paso crear archivo ingestiones. py 
+2. crear la clase "Ingestiones"
+3. crear el constructor de la clase
+4. crear un archoivo json
+5. crear una funcion que lea el json
