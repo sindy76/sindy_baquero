@@ -13,8 +13,18 @@ class Ingestiones():
             datos = json.load(f)
         return datos
              
-              
+    def leer_txt(self):
+        # r read w write
+        ruta_json="{}Txt/Info.txt".format(self.ruta_static)
+        datos=""
+        with open(ruta_json, "r", encoding="utf-8") as f:
+            datos = f.read()
+        return datos        
 
 inges= Ingestiones()
 datos_json = inges.leer_json()
 print(datos_json)
+print("**********************************************************************")
+print("**********************************************************************")
+datos_txt = inges.leer_txt()
+print(datos_txt)
