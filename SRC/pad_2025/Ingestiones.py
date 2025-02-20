@@ -21,7 +21,6 @@ class Ingestiones():
             datos = f.read()
         return datos      
 
-
     def leer_varios_txt(self, nombre= ""):
         # r read w write
         ruta_txt="{}Txt/{}" .format(self.ruta_static,nombre)
@@ -45,9 +44,17 @@ class Ingestiones():
     def leer_api(self, url=""):
         pass
     
- 
-    
+    def escribir_txt(self,nombre,datos):
+        # r read w write
 
+        ruta_txt = "{}.txt".format(nombre)
+        datos=""
+        with open(ruta_txt,"w",encoding="utf-8") as f:
+            #f.write(datos)
+            f.writelines(datos)
+            
+
+    
 inges= Ingestiones()
 datos_json = inges.leer_json()
 print(datos_json)
@@ -58,5 +65,9 @@ print(datos_txt)
 print("**********************************************************************")
 print("**********************************************************************")
 nombre_archivo="Info copia.txt"
-datos_txt = inges.leer_varios_txt(nombre_archivo)
-print(datos_txt)
+datos_txt_dos = inges.leer_varios_txt(nombre_archivo)
+print(datos_txt_dos)
+
+Ingestiones.escribir_txt(nombre="archivo_json", datos=datos_json)
+Ingestiones.escribir_txt(nombre="archivo_txt", datos=datos_txt)
+Ingestiones.escribir_txt(nombre="archivo_txt_xopy", datos=datos_txt_dos)
