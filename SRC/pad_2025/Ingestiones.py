@@ -68,6 +68,6 @@ nombre_archivo="Info copia.txt"
 datos_txt_dos = inges.leer_varios_txt(nombre_archivo)
 print(datos_txt_dos)
 
-Ingestiones.escribir_txt(nombre="archivo_json", datos=datos_json)
-Ingestiones.escribir_txt(nombre="archivo_txt", datos=datos_txt)
-Ingestiones.escribir_txt(nombre="archivo_txt_xopy", datos=datos_txt_dos)
+inges.escribir_txt(nombre="archivo_json", datos=datos_json)
+inges.escribir_txt(nombre="archivo_txt", datos=datos_txt)
+inges.escribir_txt(nombre="archivo_txt_xopy", datos=datos_txt_dos)
