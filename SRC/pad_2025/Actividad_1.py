@@ -5,12 +5,12 @@ import json
 
 class Ingestiones():
     def __init__(self):
-        self.ruta_static="src/pad_2025/static/"
+        self.ruta_static="G:/P_Paola/IUD/Analitica de dato/Reposotorio/sindy_baquero/SRC/pad_2025/Static/"
         
     def leer_json(self):
         # r read w write
 
-        ruta_json = "{}json/datos_persona.json".format(self.ruta_static)
+        ruta_json = "{}Json/Datos_personas.json".format(self.ruta_static)
         datos=""
         with open(ruta_json,"r",encoding="utf-8") as f:
             datos = json.load(f)
@@ -73,14 +73,15 @@ datos_txt = inges.leer_txt()
 print(datos_txt)
 print("************************************************************")
 print("************************************************************")
-nombre_archivo = "info copy.txt"
+nombre_archivo = "Info copia.txt"
 datos_txt_dos = inges.leer_varios_txt(nombre_archivo)
 print(datos_txt_dos)
+
 
 inges.escribir_txt(nombre="archivo_json",datos=datos_json)
 inges.escribir_txt(nombre="archivo_txt",datos=datos_txt)
 inges.escribir_txt(nombre="archivo_txt_copy",datos=datos_txt_dos)
     
-    
+
     
     
