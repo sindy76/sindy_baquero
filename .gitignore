@@ -2,6 +2,8 @@
 .venv
 venv
 sindy_baquero.egg-info
+.vscode
+
 
 __pycache__/
 *.py[cod]
