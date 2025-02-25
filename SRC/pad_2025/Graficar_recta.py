@@ -32,3 +32,5 @@ def graficar_rectas(*polinomios, colores=None, rango=(-5, 5), num_puntos=500, li
 
 colores_personalizados = ['red', 'blue', 'green', 'purple']
 graficar_rectas((4, 2), (-3, 2), (0.5, 5), (2, 1), colores=colores_personalizados, limite_y=(-20, 20))
+
+
