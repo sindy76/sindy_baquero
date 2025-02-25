@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -13,7 +14,7 @@ def graficar_rectas(*polinomios, colores=None, rango=(-5, 5), num_puntos=500, li
         y = a * x**n
         plt.plot(x, y, label=f'$f(x) = {a}x^{n}$', color=color, linewidth=2)
 
-    # Configuración de ejes y cuadrícula
+    # Configurar los  ejes y la cuadrícula
     plt.axhline(0, color='black', linewidth=0.5)
     plt.axvline(0, color='black', linewidth=0.5)
     plt.grid(True, linestyle='--', linewidth=0.5)
