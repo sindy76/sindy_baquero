@@ -3,6 +3,7 @@
 venv
 sindy_baquero.egg-info
 .vscode
+/.vscode
 
 
 __pycache__/
