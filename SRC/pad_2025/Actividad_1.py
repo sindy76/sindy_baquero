@@ -1,7 +1,6 @@
 
 import json
-
-
+import requests
 
 
 class Ingestiones():
@@ -33,7 +32,12 @@ class Ingestiones():
         datos=""
         with open(ruta_txt,"r",encoding="utf-8") as f:
             datos = f.read()
-        return datos   
+        return datos 
+      
+    def  leer_api(self,url="https://dog.ceo/api/breeds/list/all"):
+         response = requests.get(url)
+         return response.json()
+
     
     def  leer_cualquier_excel(self,nombre=""):
         pass
@@ -47,8 +51,6 @@ class Ingestiones():
     def  leer_bd(self,nombre_bd="",servidor="",puerto=0000):
         pass
     
-    def  leer_api(self,url=""):
-        pass
     
     def escribir_txt(self,nombre,datos):
         # r read w write
@@ -58,9 +60,6 @@ class Ingestiones():
         with open(ruta_txt,"w",encoding="utf-8") as f:
             #f.write(datos)
             f.writelines(datos)
-
-
-
 
 
 
@@ -77,11 +76,16 @@ print("************************************************************")
 nombre_archivo = "Info copia.txt"
 datos_txt_dos = inges.leer_varios_txt(nombre_archivo)
 print(datos_txt_dos)
+print("************************************************************")
+print("************************************************************")
+datos_api = inges.leer_api()
+print(datos_api)
+print("************************************************************")
 
 
-inges.escribir_txt(nombre="archivo_json",datos=datos_json)
-inges.escribir_txt(nombre="archivo_txt",datos=datos_txt)
-inges.escribir_txt(nombre="archivo_txt_copy",datos=datos_txt_dos)
+#inges.escribir_txt(nombre="archivo_json",datos=datos_json)
+#inges.escribir_txt(nombre="archivo_txt",datos=datos_txt)
+#inges.escribir_txt(nombre="archivo_txt_copy",datos=datos_txt_dos)
     
 
     
