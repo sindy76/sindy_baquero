@@ -1,7 +1,6 @@
 import json
 
 
-
 class Ingestiones():
     def __init__(self):
         self.ruta_static = "G:/P_Paola/IUD/Analitica de dato/Reposotorio/sindy_baquero/SRC/pad_2025/Static/"
