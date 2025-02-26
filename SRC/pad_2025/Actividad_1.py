@@ -4,7 +4,7 @@ import requests
 
 class Ingestiones():
     def __init__(self):
-        self.ruta_static="G:/P_Paola/IUD/Analitica de dato/Reposotorio/sindy_baquero/SRC/pad_2025/Static/"
+        self.ruta_static="SRC/pad_2025/Static/"
         
     def leer_json(self):
         # r read w write
@@ -87,5 +87,4 @@ print("************************************************************")
 #inges.escribir_txt(nombre="archivo_txt_copy",datos=datos_txt_dos)
     
 
-    
     
