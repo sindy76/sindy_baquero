@@ -35,5 +35,5 @@ jobs:
         with:
           commit_message: Entregable actividad_1
           commit_user_name: Sindy Baquero [GitHub Actions]
-          commit_user_email: sindy.baquero@est.iudigital.edu.co
-          commit_author: Sindy Baquero <sindy.baquero@est.iudigital.edu.co
+          commit_user_email: Sindy.baquero@est.iudigital.edu.co
+          commit_author: Sindy Baquero <Sindy.baquero@est.iudigital.edu.co
