@@ -2,7 +2,6 @@
 import json
 import requests
 
-
 class Ingestiones():
     def __init__(self):
         self.ruta_static="G:/P_Paola/IUD/Analitica de dato/Reposotorio/sindy_baquero/SRC/pad_2025/Static/"
@@ -60,8 +59,7 @@ class Ingestiones():
         with open(ruta_txt,"w",encoding="utf-8") as f:
             #f.write(datos)
             f.writelines(datos)
-
-
+            
 
 
 inges = Ingestiones() 
@@ -80,6 +78,7 @@ print("************************************************************")
 print("************************************************************")
 datos_api = inges.leer_api()
 print(datos_api)
+print("************************************************************")
 print("************************************************************")
 
 
