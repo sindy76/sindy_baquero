@@ -63,7 +63,7 @@ class Ingestiones():
     def escribir_json(self,nombre,datos):
         # r read w write
 
-        ruta_json = "{}.json".format(nombre)
+        ruta_json = "{}/json/{}".format(self.ruta_static,nombre)
         with open(ruta_json,"w",encoding="utf-8") as f:
             json.dump(datos,f,indent=4,ensure_ascii=False)
         
