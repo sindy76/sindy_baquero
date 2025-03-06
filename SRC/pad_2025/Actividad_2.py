@@ -36,14 +36,20 @@ class ejercicios:
         print("Array 2:", array2)
         print("ejercicio3", producto)
 
+    def ejercicio4(self):
+        
+
+
+  
 
 
         #print("array del 10 al 29")
         #print(array_10_29)
-    def ejecutar(self):
+     def ejecutar(self):
         self.ejercicio1()
         self.ejercicio2()
         self.ejercicio3()
+        self.ejercicio4()
 
 
         self.df.to_excel("Actividad_2.xlsx")
