@@ -64,7 +64,6 @@ class ejercicios:
         self.df.iloc[5, 1] = f"Array 3x1:\n{np.array_str(array6)}\n\nArray 1x3:\n{np.array_str(array7)}\n\nSuma (3x3):\n{np.array_str(resultado)}" 
         print("ejercicio6", resultado)
 
-
     def ejercicio7(self):
         #De una matriz 5x5, extrae una submatriz 2x2 que comience en la segunda fila y columna.
         matriz5x5 = np.random.randint(1, 10, (5, 5))
@@ -120,7 +119,6 @@ class ejercicios:
         self.df.iloc[11, 1] = "Gráfico de dispersión con ruido"
         print("ejercicio12", "Gráfico de dispersión con ruido")
 
-
     def ejercicio13(self):
         #Utiliza la función np.meshgrid para crear una cuadrícula y luego aplica la función z = np.cos(x) + np.sin(y) para generar y mostrar un gráfico de contorno.
         x = np.linspace(-2*np.pi, 2*np.pi, 100)
@@ -149,7 +147,6 @@ class ejercicios:
         self.df.iloc[13, 1] = "Gráfico de dispersión con densidad de puntos"
         print("ejercicio14", "Gráfico de dispersión con densidad de puntos")
 
-
     def ejercicio15(self):
         #A partir de la misma función del ejercicio 12, genera un gráfico de contorno lleno.
         x = np.linspace(-2*np.pi, 2*np.pi, 100)
@@ -165,16 +162,86 @@ class ejercicios:
         self.df.iloc[14, 1] = "Gráfico de contorno lleno"
         print("ejercicio15", "Gráfico de contorno lleno")
 
+    def ejercicio16(self):
+        #Añade etiquetas para el eje X (‘Eje X’), eje Y (‘Eje Y’) y un título (‘Gráfico de Dispersión’) a tu gráfico de dispersión del ejercicio 12 y crea leyendas para cada gráfico usando código LaTex
+        x = np.linspace(-2*np.pi, 2*np.pi, 100)
+        y = np.sin(x) + np.random.normal(0, 0.1, 100)   
+        plt.scatter(x, y, label=r"$\sin(x) + ruido$")
+        plt.plot(x, np.sin(x), label=r"$\sin(x)$", color="red")
+        plt.legend()
+        plt.title("Gráfico de dispersión")
+        plt.xlabel("Eje X")
+        plt.ylabel("Eje Y")
+        plt.show()
+        self.df.iloc[15, 1] = "Gráfico de dispersión con etiquetas"
+        print("ejercicio16", "Gráfico de dispersión con etiquetas")
 
-    
+     #Histogramas
+    def ejercicio17(self):
+        #Crea un histograma a partir de un array de 1000 números aleatorios generados con una distribución normal.
+        array17 = np.random.normal(0, 1, 1000)
+        plt.hist(array17, bins=30)
+        plt.title("Histograma")
+        plt.xlabel("Valor")
+        plt.ylabel("Frecuencia")
+        plt.show()
+        self.df.iloc[16, 1] = "Histograma"
+        print("ejercicio17", "Histograma")
 
-      
-    
+    def ejercicio18(self):
+        #Genera dos sets de datos con distribuciones normales diferentes y muéstralos en el mismo histograma.
+        array18_1 = np.random.normal(0, 1, 1000)
+        array18_2 = np.random.normal(2, 1, 1000)
+        plt.hist(array18_1, bins=30, alpha=0.5, label="Array 1")
+        plt.hist(array18_2, bins=30, alpha=0.5, label="Array 2")
+        plt.legend()
+        plt.title("Histograma con dos distribuciones")
+        plt.xlabel("Valor")
+        plt.ylabel("Frecuencia")
+        plt.show()
+        self.df.iloc[17, 1] = "Histograma con dos distribuciones"
+        print("ejercicio18", "Histograma con dos distribuciones")
 
+    def ejercicio19(self):
+        #Experimenta con diferentes valores de bins (por ejemplo, 10, 30, 50) en un histograma y observa cómo cambia la representación.
+        array19 = np.random.normal(0, 1, 1000)
+        plt.hist(array19, bins=10, alpha=0.5, label="Bins 10")
+        plt.hist(array19, bins=30, alpha=0.5, label="Bins 30")
+        plt.hist(array19, bins=50, alpha=0.5, label="Bins 50")
+        plt.legend()
+        plt.title("Histograma con diferentes bins")
+        plt.xlabel("Valor")
+        plt.ylabel("Frecuencia")
+        plt.show()
+        self.df.iloc[18, 1] = "Histograma con diferentes bins"
+        print("ejercicio19", "Histograma con diferentes bins")
 
+    def ejercicio20(self):
+        #Añade una línea vertical que indique la media de los datos en el histograma.
+        array20 = np.random.normal(0, 1, 1000)
+        plt.hist(array20, bins=30, alpha=0.5)
+        plt.axvline(np.mean(array20), color="red", linestyle="--", label="Media")
+        plt.legend()
+        plt.title("Histograma con media")
+        plt.xlabel("Valor")
+        plt.ylabel("Frecuencia")
+        plt.show()
+        self.df.iloc[19, 1] = "Histograma con media"
+        print("ejercicio20", "Histograma con media")
 
-
-
+    def ejercicio21(self):
+        #Crea histogramas superpuestos para los dos sets de datos del ejercicio 17, usando colores y transparencias diferentes para distinguirlos.
+        array21_1 = np.random.normal(0, 1, 1000)
+        array21_2 = np.random.normal(2, 1, 1000)
+        plt.hist(array21_1, bins=30, alpha=0.5, color="blue", label="Array 1")
+        plt.hist(array21_2, bins=30, alpha=0.5, color="red", label="Array 2")
+        plt.legend()
+        plt.title("Histograma con dos distribuciones")
+        plt.xlabel("Valor")
+        plt.ylabel("Frecuencia")
+        plt.show()
+        self.df.iloc[20, 1] = "Histograma con dos distribuciones superpuestas"
+        print("ejercicio21", "Histograma con dos distribuciones superpuestas")
 
 
         #print("array del 10 al 29")
@@ -195,10 +262,14 @@ class ejercicios:
         self.ejercicio13()
         self.ejercicio14()
         self.ejercicio15()
+        self.ejercicio16()
+        self.ejercicio17()
+        self.ejercicio18()
+        self.ejercicio19()
+        self.ejercicio20()
+
+
         
-
-
-
         self.df.to_excel("Actividad_2.xlsx")
 ene= ejercicios()
 ene.ejecutar()
