@@ -3,12 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-
 class ejercicios:
     def __init__(self):
         datos=[(1,0),(2,0), (3,0), (4,0), (5,0), (6,0), (7,0), (8,0), (9,0), (10,0), (11,0), (12,0), (13,0), (14,0), (15,0), (16,0), (17,0), (18,0), (19,0), (20,0)]
         self.df= pd.DataFrame(data=datos,columns=["#ejercicio", "valor"])
         self.ruta_Actividad2 = "SRC/pad_2025/Actividad_2"
+
 
     def ejercicio1(self):
 
@@ -258,7 +258,7 @@ class ejercicios:
         self.df.iloc[20, 1] = "Histograma con dos distribuciones superpuestas"
         print("ejercicio21", "Histograma con dos distribuciones superpuestas")
 
-        #print("array del 10 al 29")
+
         #print(array_10_29)
     def ejecutar(self):
         self.ejercicio1()
@@ -290,6 +290,5 @@ ene.ejecutar()
 
         
 
-        
 
 
