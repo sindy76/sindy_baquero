@@ -5,7 +5,7 @@ import os
 
 class ejercicios:
     def __init__(self):
-        datos=[(1,0),(2,0), (3,0), (4,0), (5,0), (6,0), (7,0), (8,0), (9,0), (10,0), (11,0), (12,0), (13,0), (14,0), (15,0), (16,0), (17,0), (18,0), (19,0), (20,0)]
+        datos=[(1,0),(2,0), (3,0), (4,0), (5,0), (6,0), (7,0), (8,0), (9,0), (10,0), (11,0), (12,0), (13,0), (14,0), (15,0), (16,0), (17,0), (18,0), (19,0), (20,0), (21,0)]
         self.df= pd.DataFrame(data=datos,columns=["#ejercicio", "valor"])
         self.ruta_raiz=os.path.abspath(os.getcwd())
         self.ruta_Actividad2 = "{}/SRC/pad_2025/Actividad_2/".format(self.ruta_raiz)
@@ -17,7 +17,7 @@ class ejercicios:
         array_10_29 = np.arange(10,30)
         #self.df["#ejercicio"]=1
         #self.df["valor"]=str(array_10_29)
-        self.df.at[0,1] = str(list(array_10_29))
+        self.df.iloc[0,1]=str(array_10_29)
         #self.df.to_excel("Actividad_2.xlsx")
 
     def ejercicio2(self):
