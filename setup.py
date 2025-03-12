@@ -8,7 +8,7 @@ setup (
     author= "Sindy Baquero",
     author_email= "sindy.baquero@est.iudigital.edu.co",
     description= "",
-    py_modules= ["actividad_1"],
+    py_modules= ["Entregable actividad 1 y 2"],
     install_requires= [
         "kagglehub[pandas-datasets]>=0.3.8",
         "matplotlib>=3.5.0",
