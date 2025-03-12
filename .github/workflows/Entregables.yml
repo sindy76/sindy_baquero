@@ -30,7 +30,7 @@ jobs:
       - name: paso5 - Ejecutar Actividad 1
         run: python SRC\pad_2025\Actividad_1.py
       - name: paso6 - Ejecutar Actividad 2
-        run: python SRC\pad_2025\Actividad_2.py
+        run: venv\Scripts\python SRC\pad_2025\Actividad_2.py
 
 
       - name: Commit and Push changes
