@@ -7,7 +7,8 @@ class ejercicios:
     def __init__(self):
         datos=[(1,0),(2,0), (3,0), (4,0), (5,0), (6,0), (7,0), (8,0), (9,0), (10,0), (11,0), (12,0), (13,0), (14,0), (15,0), (16,0), (17,0), (18,0), (19,0), (20,0)]
         self.df= pd.DataFrame(data=datos,columns=["#ejercicio", "valor"])
-        self.ruta_Actividad2 = "SRC/pad_2025/Actividad_2"
+        self.ruta_raiz=os.path.abspath(os.getcwd())
+        self.ruta_Actividad2 = "{}/SRC/pad_2025/Actividad_2/".format(self.ruta_raiz)
 
 
     def ejercicio1(self):
@@ -16,7 +17,7 @@ class ejercicios:
         array_10_29 = np.arange(10,30)
         #self.df["#ejercicio"]=1
         #self.df["valor"]=str(array_10_29)
-        self.df.iloc[0,1]=str(array_10_29)
+        self.df.at[0,1] = str(list(array_10_29))
         #self.df.to_excel("Actividad_2.xlsx")
 
     def ejercicio2(self):
@@ -24,7 +25,7 @@ class ejercicios:
         # 2. Suma de una matriz 10x10 de unos.
         array2 = np.ones((10, 10))
         suma = np.sum(array2)
-        self.df.iloc[1,1]=str(suma)
+        self.df.at[1,1]=str(suma)
         print("ejercicio2", suma)
         
     def ejercicio3(self):
@@ -34,7 +35,7 @@ class ejercicios:
         array2 = np.random.randint(1, 11, 5)
         # Realizar el producto elemento a elemento
         producto = array1 * array2
-        self.df.iloc[2,1]=str(producto)
+        self.df.at[2,1]=str(producto)
         print("Array 1:", array1)
         print("Array 2:", array2)
         print("ejercicio3", producto)
@@ -44,7 +45,7 @@ class ejercicios:
         matriz = np.fromfunction(lambda i, j: np.where(i == j, i + j + 10, i + j), (4, 4), dtype=int)
         # Calcular la inversa
         inversa = np.linalg.inv(matriz)
-        self.df.iloc[3, 1] = str(inversa)
+        self.df.at[3, 1] = str(inversa)
         print("\nMatriz inversa:\n", inversa)
 
     def ejercicio5(self):
@@ -54,7 +55,7 @@ class ejercicios:
         min_val = np.min(array5)
         indice_max = np.argmax(array5)
         indice_min = np.argmin(array5)
-        self.df.iloc[4, 1] = f"Max: {max_val}, IndMax: {indice_max}, Min: {min_val}, IndMin: {indice_min}"
+        self.df.at[4, 1] = f"Max: {max_val}, IndMax: {indice_max}, Min: {min_val}, IndMin: {indice_min}"
         print(f'Máximo: {max_val} en índice {indice_max}')
         print(f'Mínimo: {min_val} en índice {indice_min}')
 
@@ -64,35 +65,35 @@ class ejercicios:
         array6 = np.arange(3).reshape(3, 1)
         array7 = np.arange(3).reshape(1, 3)
         resultado = array6 + array7
-        self.df.iloc[5, 1] = f"Array 3x1:\n{np.array_str(array6)}\n\nArray 1x3:\n{np.array_str(array7)}\n\nSuma (3x3):\n{np.array_str(resultado)}" 
+        self.df.at[5, 1] = f"Array 3x1:\n{np.array_str(array6)}\n\nArray 1x3:\n{np.array_str(array7)}\n\nSuma (3x3):\n{np.array_str(resultado)}" 
         print("ejercicio6", resultado)
 
     def ejercicio7(self):
         #De una matriz 5x5, extrae una submatriz 2x2 que comience en la segunda fila y columna.
         matriz5x5 = np.random.randint(1, 10, (5, 5))
         submatriz = matriz5x5[1:3, 1:3]
-        self.df.iloc[6, 1] = f"Matriz 5x5:\n{np.array_str(matriz5x5)}\n\nSubmatriz 2x2:\n{np.array_str(submatriz)}"
+        self.df.at[6, 1] = f"Matriz 5x5:\n{np.array_str(matriz5x5)}\n\nSubmatriz 2x2:\n{np.array_str(submatriz)}"
         print("ejercicio7", submatriz)
     
     def ejercicio8(self):
         #Crea un array de ceros de tamaño 10 y usa indexado para cambiar el valor de los elementos en el rango de índices 3 a 6 a 5
         array8 = np.zeros(10)
         array8[3:7] = 5
-        self.df.iloc[7, 1] = str(array8)
+        self.df.at[7, 1] = str(array8)
         print("ejercicio8", array8)
 
     def ejercicio9(self):
         #Dada una matriz de 3x3, invierte el orden de sus filas
         matriz = np.random.randint(1, 10, (3, 3))
         matriz_invertida = matriz[::-1]
-        self.df.iloc[8, 1] = f"Matriz original:\n{str(matriz.tolist())}\n\nMatriz invertida:\n{str(matriz_invertida.tolist())}"
+        self.df.at[8, 1] = f"Matriz original:\n{str(matriz.tolist())}\n\nMatriz invertida:\n{str(matriz_invertida.tolist())}"
         print("ejercicio9", matriz_invertida)
 
     def ejercicio10(self):
         #Dado un array de números aleatorios de tamaño 10, selecciona y muestra solo aquellos que sean mayores a 0.5.
         array10 = np.random.rand(10)
         mayores_05 = array10[array10 > 0.5]
-        self.df.iloc[9, 1] = f"Array:\n{str(array10)}\n\nMayores a 0.5:\n{str(mayores_05)}"
+        self.df.at[9, 1] = f"Array:\n{str(array10)}\n\nMayores a 0.5:\n{str(mayores_05)}"
         print("ejercicio10", mayores_05)
 
     #Gráficos de dispersión, densidad y contorno:
@@ -104,9 +105,10 @@ class ejercicios:
         plt.title("Gráfico de dispersión")
         plt.xlabel("X")
         plt.ylabel("Y")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio11.png"))
+        ruta = "{}ejercicio_11.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[10, 1] = "Gráfico de dispersión"
+        self.df.at[10, 1] = "Gráfico de dispersión"
         print("ejercicio11", "Gráfico de dispersión")
         
 
@@ -120,9 +122,10 @@ class ejercicios:
         plt.title("Gráfico de dispersión con ruido")
         plt.xlabel("x")
         plt.ylabel("y")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio12.png"))
+        ruta = "{}ejercicio_12.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[11, 1] = "Gráfico de dispersión con ruido"
+        self.df.at[11, 1] = "Gráfico de dispersión con ruido"
         print("ejercicio12", "Gráfico de dispersión con ruido")
 
     def ejercicio13(self):
@@ -136,9 +139,10 @@ class ejercicios:
         plt.title("Gráfico de contorno")
         plt.xlabel("x")
         plt.ylabel("y")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio13.png"))
+        ruta= "{}ejercicio_13.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[12, 1] = "Gráfico de contorno"
+        self.df.at[12, 1] = "Gráfico de contorno"
         print("ejercicio13", "Gráfico de contorno")
 
     def ejercicio14(self):
@@ -150,9 +154,10 @@ class ejercicios:
         plt.title("Gráfico de dispersión con densidad de puntos")
         plt.xlabel("x")
         plt.ylabel("y")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio14.png"))
+        rura= "{}ejercicio_14.png".format(self.ruta_Actividad2)
+        plt.savefig(rura)
         plt.show()
-        self.df.iloc[13, 1] = "Gráfico de dispersión con densidad de puntos"
+        self.df.at[13, 1] = "Gráfico de dispersión con densidad de puntos"
         print("ejercicio14", "Gráfico de dispersión con densidad de puntos")
 
     def ejercicio15(self):
@@ -166,9 +171,10 @@ class ejercicios:
         plt.title("Gráfico de contorno lleno")
         plt.xlabel("x")
         plt.ylabel("y")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio15.png"))
+        ruta= "{}ejercicio_15.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[14, 1] = "Gráfico de contorno lleno"
+        self.df.at[14, 1] = "Gráfico de contorno lleno"
         print("ejercicio15", "Gráfico de contorno lleno")
 
     def ejercicio16(self):
@@ -181,9 +187,10 @@ class ejercicios:
         plt.title("Gráfico de dispersión")
         plt.xlabel("Eje X")
         plt.ylabel("Eje Y")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio16.png"))
+        ruta= "{}ejercicio_16.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[15, 1] = "Gráfico de dispersión con etiquetas"
+        self.df.at[15, 1] = "Gráfico de dispersión con etiquetas"
         print("ejercicio16", "Gráfico de dispersión con etiquetas")
 
      #Histogramas
@@ -194,9 +201,10 @@ class ejercicios:
         plt.title("Histograma")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio17.png"))
+        ruta= "{}ejercicio_17.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[16, 1] = "Histograma"
+        self.df.at[16, 1] = "Histograma"
         print("ejercicio17", "Histograma")
 
     def ejercicio18(self):
@@ -209,9 +217,10 @@ class ejercicios:
         plt.title("Histograma con dos distribuciones")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio18.png"))
+        ruta= "{}ejercicio_18.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[17, 1] = "Histograma con dos distribuciones"
+        self.df.at[17, 1] = "Histograma con dos distribuciones"
         print("ejercicio18", "Histograma con dos distribuciones")
 
     def ejercicio19(self):
@@ -224,9 +233,10 @@ class ejercicios:
         plt.title("Histograma con diferentes bins")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio19.png"))
+        ruta= "{}ejercicio_19.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[18, 1] = "Histograma con diferentes bins"
+        self.df.at[18, 1] = "Histograma con diferentes bins"
         print("ejercicio19", "Histograma con diferentes bins")
 
     def ejercicio20(self):
@@ -238,9 +248,10 @@ class ejercicios:
         plt.title("Histograma con media")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio20.png"))
+        ruta= "{}ejercicio_20.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[19, 1] = "Histograma con media"
+        self.df.at[19, 1] = "Histograma con media"
         print("ejercicio20", "Histograma con media")
 
     def ejercicio21(self):
@@ -253,9 +264,10 @@ class ejercicios:
         plt.title("Histograma con dos distribuciones")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
-        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio21.png"))
+        ruta= "{}ejercicio_21.png".format(self.ruta_Actividad2)
+        plt.savefig(ruta)
         plt.show()
-        self.df.iloc[20, 1] = "Histograma con dos distribuciones superpuestas"
+        self.df.at[20, 1] = "Histograma con dos distribuciones superpuestas"
         print("ejercicio21", "Histograma con dos distribuciones superpuestas")
 
 
