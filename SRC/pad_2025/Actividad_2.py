@@ -101,9 +101,11 @@ class ejercicios:
         plt.title("Gráfico de dispersión")
         plt.xlabel("Array 1")
         plt.ylabel("Array 2")
+        plt.savefig("grafico_dispersion.png")
         plt.show()
         self.df.iloc[10, 1] = "Gráfico de dispersión"
         print("ejercicio11", "Gráfico de dispersión")
+        
 
     def ejercicio12(self):
         #Genera un gráfico de dispersión las variables 𝑥 y 𝑦 = 𝑠𝑖𝑛(𝑥)+ ruido Gaussiano. Donde x es un array con númereos entre -2𝜋 𝑦 2𝜋. Grafica también los puntos 𝑦 = 𝑠𝑖𝑛(𝑥) en el mismo plot
