@@ -5,7 +5,7 @@ import os
 
 class ejercicios:
     def __init__(self):
-        datos=[(1,0),(2,0), (3,0), (4,0), (5,0), (6,0), (7,0), (8,0), (9,0), (10,0), (11,0), (12,0), (13,0), (14,0), (15,0), (16,0), (17,0), (18,0), (19,0), (20,0), (21,0)]
+        datos = [(i, None) for i in range(1, 22)] 
         self.df= pd.DataFrame(data=datos,columns=["#ejercicio", "valor"])
         self.ruta_raiz=os.path.abspath(os.getcwd())
         self.ruta_Actividad2 = "{}/SRC/pad_2025/Actividad_2/".format(self.ruta_raiz)
@@ -294,9 +294,8 @@ class ejercicios:
         self.ejercicio19()
         self.ejercicio20()
         self.ejercicio21()
-
         
-        self.df.to_csv("Actividad_2.csv")
+        self.df.to_excel(f"{self.ruta_Actividad2}/Actividad_2.xlsx", index=False)
 ene= ejercicios()
 ene.ejecutar()
 
