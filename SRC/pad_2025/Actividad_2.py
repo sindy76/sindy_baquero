@@ -25,7 +25,7 @@ class ejercicios:
         # 2. Suma de una matriz 10x10 de unos.
         array2 = np.ones((10, 10))
         suma = np.sum(array2)
-        self.df.at[1,1]=str(suma)
+        self.df.iloc[1,1]=str(suma)
         print("ejercicio2", suma)
         
     def ejercicio3(self):
@@ -35,7 +35,7 @@ class ejercicios:
         array2 = np.random.randint(1, 11, 5)
         # Realizar el producto elemento a elemento
         producto = array1 * array2
-        self.df.at[2,1]=str(producto)
+        self.df.iloc[2,1]=str(producto)
         print("Array 1:", array1)
         print("Array 2:", array2)
         print("ejercicio3", producto)
@@ -45,7 +45,7 @@ class ejercicios:
         matriz = np.fromfunction(lambda i, j: np.where(i == j, i + j + 10, i + j), (4, 4), dtype=int)
         # Calcular la inversa
         inversa = np.linalg.inv(matriz)
-        self.df.at[3, 1] = str(inversa)
+        self.df.iloc[3, 1] = str(inversa)
         print("\nMatriz inversa:\n", inversa)
 
     def ejercicio5(self):
@@ -55,7 +55,7 @@ class ejercicios:
         min_val = np.min(array5)
         indice_max = np.argmax(array5)
         indice_min = np.argmin(array5)
-        self.df.at[4, 1] = f"Max: {max_val}, IndMax: {indice_max}, Min: {min_val}, IndMin: {indice_min}"
+        self.df.iloc[4, 1] = f"Max: {max_val}, IndMax: {indice_max}, Min: {min_val}, IndMin: {indice_min}"
         print(f'Máximo: {max_val} en índice {indice_max}')
         print(f'Mínimo: {min_val} en índice {indice_min}')
 
@@ -65,35 +65,35 @@ class ejercicios:
         array6 = np.arange(3).reshape(3, 1)
         array7 = np.arange(3).reshape(1, 3)
         resultado = array6 + array7
-        self.df.at[5, 1] = f"Array 3x1:\n{np.array_str(array6)}\n\nArray 1x3:\n{np.array_str(array7)}\n\nSuma (3x3):\n{np.array_str(resultado)}" 
+        self.df.iloc[5, 1] = f"Array 3x1:\n{np.array_str(array6)}\n\nArray 1x3:\n{np.array_str(array7)}\n\nSuma (3x3):\n{np.array_str(resultado)}" 
         print("ejercicio6", resultado)
 
     def ejercicio7(self):
         #De una matriz 5x5, extrae una submatriz 2x2 que comience en la segunda fila y columna.
         matriz5x5 = np.random.randint(1, 10, (5, 5))
         submatriz = matriz5x5[1:3, 1:3]
-        self.df.at[6, 1] = f"Matriz 5x5:\n{np.array_str(matriz5x5)}\n\nSubmatriz 2x2:\n{np.array_str(submatriz)}"
+        self.df.iloc[6, 1] = f"Matriz 5x5:\n{np.array_str(matriz5x5)}\n\nSubmatriz 2x2:\n{np.array_str(submatriz)}"
         print("ejercicio7", submatriz)
     
     def ejercicio8(self):
         #Crea un array de ceros de tamaño 10 y usa indexado para cambiar el valor de los elementos en el rango de índices 3 a 6 a 5
         array8 = np.zeros(10)
         array8[3:7] = 5
-        self.df.at[7, 1] = str(array8)
+        self.df.iloc[7, 1] = str(array8)
         print("ejercicio8", array8)
 
     def ejercicio9(self):
         #Dada una matriz de 3x3, invierte el orden de sus filas
         matriz = np.random.randint(1, 10, (3, 3))
         matriz_invertida = matriz[::-1]
-        self.df.at[8, 1] = f"Matriz original:\n{str(matriz.tolist())}\n\nMatriz invertida:\n{str(matriz_invertida.tolist())}"
+        self.df.iloc[8, 1] = f"Matriz original:\n{str(matriz.tolist())}\n\nMatriz invertida:\n{str(matriz_invertida.tolist())}"
         print("ejercicio9", matriz_invertida)
 
     def ejercicio10(self):
         #Dado un array de números aleatorios de tamaño 10, selecciona y muestra solo aquellos que sean mayores a 0.5.
         array10 = np.random.rand(10)
         mayores_05 = array10[array10 > 0.5]
-        self.df.at[9, 1] = f"Array:\n{str(array10)}\n\nMayores a 0.5:\n{str(mayores_05)}"
+        self.df.iloc[9, 1] = f"Array:\n{str(array10)}\n\nMayores a 0.5:\n{str(mayores_05)}"
         print("ejercicio10", mayores_05)
 
     #Gráficos de dispersión, densidad y contorno:
@@ -295,7 +295,7 @@ class ejercicios:
         self.ejercicio20()
         self.ejercicio21()
         
-        self.df.to_excel(f"{self.ruta_Actividad2}/Actividad_2.xlsx", index=False)
+        self.df.to_csv(f"{self.ruta_Actividad2}/Actividad_2.csv", index=False)
 ene= ejercicios()
 ene.ejecutar()
 
