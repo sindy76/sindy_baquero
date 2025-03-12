@@ -17,7 +17,7 @@ class ejercicios:
         array_10_29 = np.arange(10,30)
         #self.df["#ejercicio"]=1
         #self.df["valor"]=str(array_10_29)
-        self.df.iloc[0, 1] = array_10_29.tolist()
+        self.df.iloc[0, 1] = ', '.join(map(str, array_10_29.tolist()))
         #self.df.to_excel("Actividad_2.xlsx")
 
     def ejercicio2(self):
