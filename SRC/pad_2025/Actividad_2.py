@@ -1,11 +1,14 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
+
 
 class ejercicios:
     def __init__(self):
         datos=[(1,0),(2,0), (3,0), (4,0), (5,0), (6,0), (7,0), (8,0), (9,0), (10,0), (11,0), (12,0), (13,0), (14,0), (15,0), (16,0), (17,0), (18,0), (19,0), (20,0)]
         self.df= pd.DataFrame(data=datos,columns=["#ejercicio", "valor"])
+        self.ruta_Actividad2 = "SRC/pad_2025/Actividad_2"
 
     def ejercicio1(self):
 
@@ -95,13 +98,13 @@ class ejercicios:
     #Gráficos de dispersión, densidad y contorno:
     def ejercicio11(self):
         #Genera dos arrays de tamaño 100 con números aleatorios y crea un gráfico de dispersión.
-        array11_1 = np.random.rand(100)
-        array11_2 = np.random.rand(100)
-        plt.scatter(array11_1, array11_2)
+        X = np.random.rand(100)
+        Y = np.random.rand(100)
+        plt.scatter(X, Y)
         plt.title("Gráfico de dispersión")
-        plt.xlabel("Array 1")
-        plt.ylabel("Array 2")
-        plt.savefig("grafico_dispersion.png")
+        plt.xlabel("X")
+        plt.ylabel("Y")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio11.png"))
         plt.show()
         self.df.iloc[10, 1] = "Gráfico de dispersión"
         print("ejercicio11", "Gráfico de dispersión")
@@ -117,6 +120,7 @@ class ejercicios:
         plt.title("Gráfico de dispersión con ruido")
         plt.xlabel("x")
         plt.ylabel("y")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio12.png"))
         plt.show()
         self.df.iloc[11, 1] = "Gráfico de dispersión con ruido"
         print("ejercicio12", "Gráfico de dispersión con ruido")
@@ -132,6 +136,7 @@ class ejercicios:
         plt.title("Gráfico de contorno")
         plt.xlabel("x")
         plt.ylabel("y")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio13.png"))
         plt.show()
         self.df.iloc[12, 1] = "Gráfico de contorno"
         print("ejercicio13", "Gráfico de contorno")
@@ -145,6 +150,7 @@ class ejercicios:
         plt.title("Gráfico de dispersión con densidad de puntos")
         plt.xlabel("x")
         plt.ylabel("y")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio14.png"))
         plt.show()
         self.df.iloc[13, 1] = "Gráfico de dispersión con densidad de puntos"
         print("ejercicio14", "Gráfico de dispersión con densidad de puntos")
@@ -160,6 +166,7 @@ class ejercicios:
         plt.title("Gráfico de contorno lleno")
         plt.xlabel("x")
         plt.ylabel("y")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio15.png"))
         plt.show()
         self.df.iloc[14, 1] = "Gráfico de contorno lleno"
         print("ejercicio15", "Gráfico de contorno lleno")
@@ -174,6 +181,7 @@ class ejercicios:
         plt.title("Gráfico de dispersión")
         plt.xlabel("Eje X")
         plt.ylabel("Eje Y")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio16.png"))
         plt.show()
         self.df.iloc[15, 1] = "Gráfico de dispersión con etiquetas"
         print("ejercicio16", "Gráfico de dispersión con etiquetas")
@@ -186,6 +194,7 @@ class ejercicios:
         plt.title("Histograma")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio17.png"))
         plt.show()
         self.df.iloc[16, 1] = "Histograma"
         print("ejercicio17", "Histograma")
@@ -200,6 +209,7 @@ class ejercicios:
         plt.title("Histograma con dos distribuciones")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio18.png"))
         plt.show()
         self.df.iloc[17, 1] = "Histograma con dos distribuciones"
         print("ejercicio18", "Histograma con dos distribuciones")
@@ -214,6 +224,7 @@ class ejercicios:
         plt.title("Histograma con diferentes bins")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio19.png"))
         plt.show()
         self.df.iloc[18, 1] = "Histograma con diferentes bins"
         print("ejercicio19", "Histograma con diferentes bins")
@@ -227,6 +238,7 @@ class ejercicios:
         plt.title("Histograma con media")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio20.png"))
         plt.show()
         self.df.iloc[19, 1] = "Histograma con media"
         print("ejercicio20", "Histograma con media")
@@ -241,10 +253,10 @@ class ejercicios:
         plt.title("Histograma con dos distribuciones")
         plt.xlabel("Valor")
         plt.ylabel("Frecuencia")
+        plt.savefig(os.path.join(self.ruta_Actividad2, "ejercicio21.png"))
         plt.show()
         self.df.iloc[20, 1] = "Histograma con dos distribuciones superpuestas"
         print("ejercicio21", "Histograma con dos distribuciones superpuestas")
-
 
         #print("array del 10 al 29")
         #print(array_10_29)
@@ -269,10 +281,10 @@ class ejercicios:
         self.ejercicio18()
         self.ejercicio19()
         self.ejercicio20()
-
+        self.ejercicio21()
 
         
-        self.df.to_excel("Actividad_2.xlsx")
+        self.df.to_csv("Actividad_2.csv")
 ene= ejercicios()
 ene.ejecutar()
 
