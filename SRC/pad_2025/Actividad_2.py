@@ -17,7 +17,7 @@ class ejercicios:
         array_10_29 = np.arange(10,30)
         #self.df["#ejercicio"]=1
         #self.df["valor"]=str(array_10_29)
-        self.df.iloc[0,1] = ', '.join(map(str, array_10_29.tolist()))
+        self.df.iloc[0, 1] = array_10_29.tolist()
         #self.df.to_excel("Actividad_2.xlsx")
 
     def ejercicio2(self):
@@ -107,7 +107,7 @@ class ejercicios:
         plt.ylabel("Y")
         ruta = "{}ejercicio_11.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[10, 1] = "Gráfico de dispersión"
         print("ejercicio11", "Gráfico de dispersión")
         
@@ -124,7 +124,7 @@ class ejercicios:
         plt.ylabel("y")
         ruta = "{}ejercicio_12.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[11, 1] = "Gráfico de dispersión con ruido"
         print("ejercicio12", "Gráfico de dispersión con ruido")
 
@@ -141,7 +141,7 @@ class ejercicios:
         plt.ylabel("y")
         ruta= "{}ejercicio_13.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[12, 1] = "Gráfico de contorno"
         print("ejercicio13", "Gráfico de contorno")
 
@@ -156,7 +156,7 @@ class ejercicios:
         plt.ylabel("y")
         rura= "{}ejercicio_14.png".format(self.ruta_Actividad2)
         plt.savefig(rura)
-        plt.show()
+        #plt.show()
         self.df.at[13, 1] = "Gráfico de dispersión con densidad de puntos"
         print("ejercicio14", "Gráfico de dispersión con densidad de puntos")
 
@@ -173,7 +173,7 @@ class ejercicios:
         plt.ylabel("y")
         ruta= "{}ejercicio_15.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[14, 1] = "Gráfico de contorno lleno"
         print("ejercicio15", "Gráfico de contorno lleno")
 
@@ -189,7 +189,7 @@ class ejercicios:
         plt.ylabel("Eje Y")
         ruta= "{}ejercicio_16.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[15, 1] = "Gráfico de dispersión con etiquetas"
         print("ejercicio16", "Gráfico de dispersión con etiquetas")
 
@@ -203,7 +203,7 @@ class ejercicios:
         plt.ylabel("Frecuencia")
         ruta= "{}ejercicio_17.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[16, 1] = "Histograma"
         print("ejercicio17", "Histograma")
 
@@ -219,7 +219,7 @@ class ejercicios:
         plt.ylabel("Frecuencia")
         ruta= "{}ejercicio_18.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[17, 1] = "Histograma con dos distribuciones"
         print("ejercicio18", "Histograma con dos distribuciones")
 
@@ -235,7 +235,7 @@ class ejercicios:
         plt.ylabel("Frecuencia")
         ruta= "{}ejercicio_19.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[18, 1] = "Histograma con diferentes bins"
         print("ejercicio19", "Histograma con diferentes bins")
 
@@ -250,7 +250,7 @@ class ejercicios:
         plt.ylabel("Frecuencia")
         ruta= "{}ejercicio_20.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[19, 1] = "Histograma con media"
         print("ejercicio20", "Histograma con media")
 
@@ -266,7 +266,7 @@ class ejercicios:
         plt.ylabel("Frecuencia")
         ruta= "{}ejercicio_21.png".format(self.ruta_Actividad2)
         plt.savefig(ruta)
-        plt.show()
+        #plt.show()
         self.df.at[20, 1] = "Histograma con dos distribuciones superpuestas"
         print("ejercicio21", "Histograma con dos distribuciones superpuestas")
 
