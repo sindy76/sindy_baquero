@@ -35,7 +35,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
        
         with:
-          commit_message: Entregables actividad 1 y 2.
+          commit_message: Entregables_actividad_2
           commit_user_name: sindy baquero [GitHub Actions]
           commit_user_email: sindy.baquero@est.iudigital.edu.co
           commit_author: sindy baquero <sindy.baquero@est.iudigital.edu.co>
