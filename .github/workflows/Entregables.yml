@@ -1,4 +1,4 @@
-name: Entregables
+name: Entregables 1 y 2
 
 on:
   push:
@@ -39,5 +39,4 @@ jobs:
           commit_user_name: sindy baquero [GitHub Actions]
           commit_user_email: sindy.baquero@est.iudigital.edu.co
           commit_author: sindy baquero <sindy.baquero@est.iudigital.edu.co>
-          
           
