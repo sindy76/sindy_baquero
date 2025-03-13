@@ -1,6 +1,6 @@
 name: Entregables 1 y 2
 
-on:
+on: 
   push:
     branches: [ main ]
 
