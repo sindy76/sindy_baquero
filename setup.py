@@ -10,6 +10,7 @@ setup (
     py_modules= ["Entregable actividad 1 y 2"],
     install_requires= [
         "kagglehub[pandas-datasets]>=0.3.8",
+        "kaggle",
         "matplotlib>=3.5.0",
         "seaborn>=0.11.2",
         "pandas",

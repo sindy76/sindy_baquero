@@ -9,7 +9,6 @@ import tkinter
 # tkinter._test()
 import numpy as np
 
-
 class Pad_clase:
     def __init__(self):
         pass
@@ -40,7 +39,8 @@ class Pad_clase:
                 raise FileNotFoundError("No se encontró ningún archivo .zip ni archivos .csv en la ruta del dataset")
 
     def create_csv(self,csv_dir):
-        os.makedirs('src/static/csv', exist_ok=True)
+        os.makedirs('SRC/Static/cvs', exist_ok=True)
+
         #db_path = 'src/static/db/ingestion.db'
 
         # # Eliminar el archivo de base de datos si ya existe
@@ -71,7 +71,7 @@ class Pad_clase:
         generados = np.random.randn(cantidad)
         serie = pd.Series(generados)
         df["random_g"] = serie
-        df.to_csv("dataset_nuevo.csv")
+       # df.to_csv("dataset_nuevo.csv")
         #plt.figure()
         df["num_units"].plot(kind = 'barh')
         #print(df["random_g"].describe())
@@ -108,16 +108,14 @@ class Pad_clase:
             plt.show()
         
         
-        
 
-
-# padclase = Pad_clase()          
-# dataset_path = padclase.download_dataset_zip()
-# csv_dir = padclase.extract_zip_files(dataset_path)
-# df = padclase.create_csv(csv_dir)
-# print(df.describe(),df.count,df.info())
-# df.to_csv("dataset_kaggle.csv")
-# padclase.grafico_normal(df)
-# padclase.grafico_df_xy(df)
-#209306
-#print(df.describe(),df.count,df.info())
+padclase = Pad_clase()          
+dataset_path = padclase.download_dataset_zip()
+csv_dir = padclase.extract_zip_files(dataset_path)
+df = padclase.create_csv(csv_dir)
+print(df.describe(),df.count,df.info())
+df.to_csv("dataset_kaggle.csv")
+padclase.grafico_normal(df)
+padclase.grafico_df_xy(df)
+209306
+print(df.describe(),df.count,df.info())
