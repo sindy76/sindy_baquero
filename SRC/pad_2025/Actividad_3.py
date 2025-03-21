@@ -26,6 +26,7 @@ class ejercicios:
         frutas.to_csv(ruta_ej1, index=False)
         self.df.loc[0, "valor"] = ruta_ej1
         print(frutas)
+        print("********************************************************************")
 
     def ejercicio2(self):
         # Crea un DataFrame ventas_frutas que coincida con el diagrama:
@@ -36,6 +37,8 @@ class ejercicios:
         ventas_frutas.to_csv(ruta_ej2, index=True)
         self.df.loc[1, "valor"] = ruta_ej2
         print(ventas_frutas)
+        print("********************************************************************")
+
 
 
     def ejercicio3(self):
@@ -48,6 +51,7 @@ class ejercicios:
         utensilios.to_csv(ruta_ej3, index=True)
         self.df.loc[2, "valor"] = ruta_ej3
         print(utensilios)
+        print("********************************************************************")
 
     def ejercicio4(self):
         #Descarga el dataset 'wine review' desde Kaggle y cárgalo en un DataFrame llamado review, tal y como se muestra en la figura.
@@ -102,6 +106,7 @@ class ejercicios:
             except Exception as e:
                 print(f"Error al leer {file}: {e}")
                 continue
+        print("*******************************************************************************************************")
     def ejercicio5(self):
         ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
         ruta_nuevo_csv = os.path.join(self.ruta_Actividad_3, "Ejercicio_5.csv")
@@ -113,6 +118,7 @@ class ejercicios:
             self.df.loc[4, "valor"] = ruta_nuevo_csv
             print(f"Se ha creado el archivo: {ruta_nuevo_csv}")
             print(primeras_filas)
+            print("***********************************************************************")
 
     def ejercicio6(self):
     #Utiliza el método .info() para averiguar cuántas entradas hay. ¿Cuántas encontraste?
@@ -127,6 +133,7 @@ class ejercicios:
         print(f"Información del DataFrame guardada en: {ruta_salida}")
         print("Resumen de .info():")
         review.info()  # Muestra la información en consola también
+        print("***********************************************************************")
 
     def ejercicio7(self):  
         #¿Cuál es el precio promedio?
@@ -140,6 +147,7 @@ class ejercicios:
             self.df.loc[6, "valor"] = ruta_salida
             print(f"Precio promedio: {precio_promedio:.2f}")
             print(f"Resultado guardado en: {ruta_salida}")
+            print("***********************************************************************")
 
     def ejercicio8(self):
         #¿Cuál es el precio más alto pagado?
@@ -153,6 +161,7 @@ class ejercicios:
             self.df.loc[7, "valor"] = ruta_salida
             print(f"Precio máximo: {precio_maximo:.2f}")
             print(f"Resultado guardado en: {ruta_salida}")
+            print("***********************************************************************")
 
     def ejercicio9(self):
         #Crea un DataFrame con todos los vinos de california.
@@ -165,6 +174,7 @@ class ejercicios:
             self.df.loc[8, "valor"] = ruta_salida
             print("Vinos de California:")
             print(vinos_california)
+            print("***********************************************************************")
 
     def ejercicio10(self):
         #Utiliza idxmax() para encontrar el índice del vino con el precio más alto y luego utiliza loc para obtener toda la información de ese vino específico.
@@ -179,6 +189,7 @@ class ejercicios:
             self.df.loc[9, "valor"] = ruta_salida
             print("Vino con precio más alto:")
             print(vino_precio_max)
+            print("***********************************************************************")
 
     def ejercicio11(self):
         #¿Cuáles son los tipos de uva más comunes en California?
@@ -188,23 +199,27 @@ class ejercicios:
             review = pd.read_csv(ruta_review)
             uvas_california = review[review["province"] == "California"]["variety"].value_counts()
             with open(ruta_salida, "w", encoding="utf-8") as f:
-                f.write(f"Tipos de uva más comunes en California:\n{uvas_california}")
-            self.df.loc[10, "valor"] = ruta_salida
+                f.write("Tipos de uva más comunes en California:\n")
+                f.write(str(uvas_california))
+                self.df.loc[10, "valor"] = ruta_salida
             print("Tipos de uva más comunes en California:")
             print(uvas_california)
+            print("***********************************************************************")
 
     def ejercicio12(self):
         # ¿Cuáles son los 10 tipos de uva más comunes en California?
         ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
-        ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_12.csv")
+        ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_12.txt")
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
             uvas_california = review[review["province"] == "California"]["variety"].value_counts().head(10)
-            uvas_california = uvas_california.rename_axis("variety").reset_index(name="count")  # Convertir a DataFrame
-            uvas_california.to_csv(ruta_salida, index=False, encoding="utf-8")
-            self.df.loc[11, "valor"] = ruta_salida
-            print("Los 10 tipos de uva más comunes en California son:")
+            with open(ruta_salida, "w", encoding="utf-8") as f:
+                f.write("10 tipos de uva más comunes en California:\n")
+                f.write(str(uvas_california))
+                self.df.loc[11, "valor"] = ruta_salida
+            print("10 tipos de uva más comunes en California:")
             print(uvas_california)
+            print("****************************************************************")
 
 
     def ejecutar(self):
@@ -221,10 +236,8 @@ class ejercicios:
         self.ejercicio11()
         self.ejercicio12()
 
-
       
 
-        
         self.df.to_csv(f"{self.ruta_Actividad_3}/Actividad_3.csv", index=False)
 ene= ejercicios()
 ene.ejecutar()
