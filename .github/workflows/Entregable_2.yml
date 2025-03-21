@@ -1,4 +1,4 @@
-name: Entregables 1 y 2
+name: Entregables 1, 2 y 3
 
 on:   
   push:
@@ -31,11 +31,13 @@ jobs:
         run: python SRC\pad_2025\Actividad_1.py
       - name: paso6 - Ejecutar Actividad 2
         run: python SRC\pad_2025\Actividad_2.py
+      - name: paso7 - Ejecutar Actividad 3
+        run: python SRC\pad_2025\Actividad_3.py
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
        
         with:
-          commit_message: Entregables_actividad_2
+          commit_message: Entregables_actividad_ 1, 2 y 3
           commit_user_name: sindy baquero [GitHub Actions]
           commit_user_email: sindy.baquero@est.iudigital.edu.co
           commit_author: sindy baquero <sindy.baquero@est.iudigital.edu.co>
