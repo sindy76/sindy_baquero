@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import tkinter
 # tkinter._test()
 import numpy as np
-
 class ejercicios:
     def __init__(self):
         datos = [(i, None) for i in range(1, 13)] 
@@ -39,8 +38,6 @@ class ejercicios:
         print(ventas_frutas)
         print("********************************************************************")
 
-
-
     def ejercicio3(self):
         #Crea una variable utensilios con una Serie que tenga el siguiente aspecto:
         utensilios = pd.Series(
@@ -68,6 +65,7 @@ class ejercicios:
         # Mostrar el DataFrame para verificar que se cargó correctamente
         print("DataFrame 'review' cargado exitosamente:")
         print(review.head())
+        print("***********************************************************************")
 
     def extract_zip_files(self, dataset_path):
         zip_files = [f for f in os.listdir(dataset_path) if f.endswith('.zip')]
@@ -83,7 +81,7 @@ class ejercicios:
             # Verificar si hay archivos CSV
             csv_files = [f for f in os.listdir(dataset_path) if f.endswith('.csv')]
             if csv_files:
-                print("No se encontró archivo ZIP pero se detectaron archivos CSV; se asume que el dataset ya está extraído.")
+                print(" dataset extraído.")
                 return dataset_path
             else:
                 raise FileNotFoundError("No se encontró ningún archivo .zip ni archivos .csv en la ruta del dataset.")
@@ -106,7 +104,7 @@ class ejercicios:
             except Exception as e:
                 print(f"Error al leer {file}: {e}")
                 continue
-        print("*******************************************************************************************************")
+        
     def ejercicio5(self):
         ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
         ruta_nuevo_csv = os.path.join(self.ruta_Actividad_3, "Ejercicio_5.csv")
