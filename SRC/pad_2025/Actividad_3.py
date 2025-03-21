@@ -11,7 +11,7 @@ import numpy as np
 
 class ejercicios:
     def __init__(self):
-        datos = [(i, None) for i in range(1, 22)] 
+        datos = [(i, None) for i in range(1, 13)] 
         self.df= pd.DataFrame(data=datos,columns=["#ejercicio", "valor"])
         self.ruta_raiz=os.path.abspath(os.getcwd())
         self.ruta_Actividad_3 = "{}/SRC/pad_2025/Actividad_3/".format(self.ruta_raiz)
@@ -153,9 +153,58 @@ class ejercicios:
             self.df.loc[7, "valor"] = ruta_salida
             print(f"Precio máximo: {precio_maximo:.2f}")
             print(f"Resultado guardado en: {ruta_salida}")
-            
 
+    def ejercicio9(self):
+        #Crea un DataFrame con todos los vinos de california.
+        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_9.csv")
+        if os.path.exists(ruta_review):
+            review = pd.read_csv(ruta_review)
+            vinos_california = review[review["province"] == "California"]
+            vinos_california.to_csv(ruta_salida, index=False)
+            self.df.loc[8, "valor"] = ruta_salida
+            print("Vinos de California:")
+            print(vinos_california)
 
+    def ejercicio10(self):
+        #Utiliza idxmax() para encontrar el índice del vino con el precio más alto y luego utiliza loc para obtener toda la información de ese vino específico.
+        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_10.txt")
+        if os.path.exists(ruta_review):
+            review = pd.read_csv(ruta_review)
+            idx_precio_max = review["price"].idxmax()
+            vino_precio_max = review.loc[idx_precio_max]
+            with open(ruta_salida, "w", encoding="utf-8") as f:
+                f.write(f"Vino con precio más alto:\n{vino_precio_max}")
+            self.df.loc[9, "valor"] = ruta_salida
+            print("Vino con precio más alto:")
+            print(vino_precio_max)
+
+    def ejercicio11(self):
+        #¿Cuáles son los tipos de uva más comunes en California?
+        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_11.txt")
+        if os.path.exists(ruta_review):
+            review = pd.read_csv(ruta_review)
+            uvas_california = review[review["province"] == "California"]["variety"].value_counts()
+            with open(ruta_salida, "w", encoding="utf-8") as f:
+                f.write(f"Tipos de uva más comunes en California:\n{uvas_california}")
+            self.df.loc[10, "valor"] = ruta_salida
+            print("Tipos de uva más comunes en California:")
+            print(uvas_california)
+
+    def ejercicio12(self):
+        # ¿Cuáles son los 10 tipos de uva más comunes en California?
+        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_12.csv")
+        if os.path.exists(ruta_review):
+            review = pd.read_csv(ruta_review)
+            uvas_california = review[review["province"] == "California"]["variety"].value_counts().head(10)
+            uvas_california = uvas_california.rename_axis("variety").reset_index(name="count")  # Convertir a DataFrame
+            uvas_california.to_csv(ruta_salida, index=False, encoding="utf-8")
+            self.df.loc[11, "valor"] = ruta_salida
+            print("Los 10 tipos de uva más comunes en California son:")
+            print(uvas_california)
 
 
     def ejecutar(self):
@@ -166,6 +215,11 @@ class ejercicios:
         self.ejercicio5()
         self.ejercicio6()
         self.ejercicio7()
+        self.ejercicio8()
+        self.ejercicio9()
+        self.ejercicio10()
+        self.ejercicio11()
+        self.ejercicio12()
 
 
       
