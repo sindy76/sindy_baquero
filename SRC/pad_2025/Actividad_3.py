@@ -40,12 +40,13 @@ class ejercicios:
 
     def ejercicio3(self):
         #Crea una variable utensilios con una Serie que tenga el siguiente aspecto:
-        utensilios = pd.Series(
-    data=["3 unidades", "2 unidades", "4 unidades", "5 unidades"],
-    index=["Cuchara", "Tenedor", "Cuchillo", "Plato"],
-    name="cocina")
+        utensilios = pd.Series(["Cuchara 3 unidades", 
+                        "Tenedor 2 unidades", 
+                        "Cuchillo 4 unidades", 
+                        "Plato 5 unidades"], 
+                        name="Cocina")
         ruta_ej3 = os.path.join(self.ruta_Actividad_3, "Ejercicio_3.csv")
-        utensilios.to_csv(ruta_ej3, index=True)
+        utensilios.to_csv(ruta_ej3, index=False)
         self.df.loc[2, "valor"] = ruta_ej3
         print(utensilios)
         print("********************************************************************")
@@ -111,7 +112,7 @@ class ejercicios:
 
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
-            primeras_filas = review.head(2)
+            primeras_filas = review.head(5)
             primeras_filas.to_csv(ruta_nuevo_csv, index=False)
             self.df.loc[4, "valor"] = ruta_nuevo_csv
             print(f"Se ha creado el archivo: {ruta_nuevo_csv}")
@@ -234,8 +235,7 @@ class ejercicios:
         self.ejercicio11()
         self.ejercicio12()
 
-      
-
+    
         self.df.to_csv(f"{self.ruta_Actividad_3}/Actividad_3.csv", index=False)
 ene= ejercicios()
 ene.ejecutar()
