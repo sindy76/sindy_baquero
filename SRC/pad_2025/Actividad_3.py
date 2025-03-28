@@ -52,7 +52,7 @@ class ejercicios:
         print("********************************************************************")
 
     def ejercicio4(self):
-        #Descarga el dataset 'wine review' desde Kaggle y cárgalo en un DataFrame llamado review, tal y como se muestra en la figura.
+                #Descarga el dataset 'wine review' desde Kaggle y cárgalo en un DataFrame llamado review, tal y como se muestra en la figura.
         print("Descargando dataset desde Kaggle...")
         dataset_path = kagglehub.dataset_download("zynicide/wine-reviews")
         print(f"Dataset descargado en: {dataset_path}")
@@ -65,7 +65,7 @@ class ejercicios:
 
         # Mostrar el DataFrame para verificar que se cargó correctamente
         print("DataFrame 'review' cargado exitosamente:")
-        print(review.head())
+        print(review.head())  # Muestra las primeras filas del DataFrame
         print("***********************************************************************")
 
     def extract_zip_files(self, dataset_path):
@@ -91,23 +91,31 @@ class ejercicios:
         csv_files = [f for f in os.listdir(csv_dir) if f.endswith('.csv')]
         if not csv_files:
             raise FileNotFoundError("No se encontraron archivos CSV en el directorio extraído.")
-
         for file in csv_files:
-            file_path = os.path.join(csv_dir, file)
-            print(f"Leyendo {file_path}...")
-            try:
-                review = pd.read_csv(file_path, encoding="latin1")
-                output_file = os.path.join(self.ruta_Actividad_3, "review.csv")
-                review.to_csv(output_file, index=False)
-                self.df.loc[3, "valor"] = output_file
-                print(f"Archivo 'wine review' guardado correctamente en: {output_file}")
-                return review  # Retorna el DataFrame para futuros usos
-            except Exception as e:
-                print(f"Error al leer {file}: {e}")
-                continue
+         file_path = os.path.join(csv_dir, file)
+        print(f"Leyendo {file_path}...")
+        try:
+            # Leer el archivo CSV completo
+            review = pd.read_csv(file_path, encoding="latin1")
+            # Guardar el archivo completo
+            output_file_all = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
+            review.to_csv(output_file_all, index=False)
+            print(f"Archivo completo guardado correctamente en: {output_file_all}")
+            # Crear un nuevo DataFrame con las primeras 5 filas y la última fila
+            subset_review = pd.concat([review.head(5), review.tail(5)])
+            output_file_subset = os.path.join(self.ruta_Actividad_3, "review.csv")
+            subset_review.to_csv(output_file_subset, index=False)
+            print(f"Archivo con las primeras 5 filas y la última fila guardado en: {output_file_subset}")
+
+            self.df.loc[3, "valor"] = output_file_subset
+            return review
+        except pd.errors.ParserError as e:
+            print(f"Error al leer el archivo CSV: {e}")
+    
         
     def ejercicio5(self):
-        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        #Visualiza las primeras filas del DataFrame
+        ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
         ruta_nuevo_csv = os.path.join(self.ruta_Actividad_3, "Ejercicio_5.csv")
 
         if os.path.exists(ruta_review):
@@ -118,25 +126,24 @@ class ejercicios:
             print(f"Se ha creado el archivo: {ruta_nuevo_csv}")
             print(primeras_filas)
             print("***********************************************************************")
-
+ 
     def ejercicio6(self):
     #Utiliza el método .info() para averiguar cuántas entradas hay. ¿Cuántas encontraste?
-
-      ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
-      ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_6.txt")
-      if os.path.exists(ruta_review):
-        review = pd.read_csv(ruta_review)
-        with open(ruta_salida, "w", encoding="utf-8") as f:
-            review.info(buf=f)  # Guarda el resultado de .info() en el archivo
-        self.df.loc[5, "valor"] = ruta_salida
-        print(f"Información del DataFrame guardada en: {ruta_salida}")
-        print("Resumen de .info():")
-        review.info()  # Muestra la información en consola también
-        print("***********************************************************************")
+         ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
+         ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_6.txt")
+         if os.path.exists(ruta_review):
+             review = pd.read_csv(ruta_review)
+         with open(ruta_salida, "w", encoding="utf-8") as f:
+            review.info(buf=f)  # Guarda el resultado de .info() en el archivo 
+            self.df.loc[5, "valor"] = ruta_salida
+            print(f"Información del DataFrame guardada en: {ruta_salida}")
+            print("Resumen de .info():")
+            review.info()  # Muestra la información en consola también
+            print("***********************************************************************")
 
     def ejercicio7(self):  
         #¿Cuál es el precio promedio?
-        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
         ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_7.txt")
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
@@ -144,13 +151,13 @@ class ejercicios:
             with open(ruta_salida, "w", encoding="utf-8") as f:
                 f.write(f"Precio promedio: {precio_promedio:.2f}")
             self.df.loc[6, "valor"] = ruta_salida
+            print(f"Precio promedio guardado en: {ruta_salida}")
             print(f"Precio promedio: {precio_promedio:.2f}")
-            print(f"Resultado guardado en: {ruta_salida}")
             print("***********************************************************************")
 
     def ejercicio8(self):
         #¿Cuál es el precio más alto pagado?
-        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
         ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_8.txt")
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
@@ -164,35 +171,40 @@ class ejercicios:
 
     def ejercicio9(self):
         #Crea un DataFrame con todos los vinos de california.
-        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
         ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_9.csv")
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
-            vinos_california = review[review["province"] == "California"]
-            vinos_california.to_csv(ruta_salida, index=False)
+            california_wines = review[review["province"] == "California"]
+            california_wines.to_csv(ruta_salida, index=False)
             self.df.loc[8, "valor"] = ruta_salida
-            print("Vinos de California:")
-            print(vinos_california)
+            print(f"DataFrame con vinos de California guardado en: {ruta_salida}")
+            print(california_wines.head())
             print("***********************************************************************")
+
 
     def ejercicio10(self):
         #Utiliza idxmax() para encontrar el índice del vino con el precio más alto y luego utiliza loc para obtener toda la información de ese vino específico.
-        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+        ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
         ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_10.txt")
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
-            idx_precio_max = review["price"].idxmax()
-            vino_precio_max = review.loc[idx_precio_max]
+        vinos_california = review[review["province"].str.contains("California", case=False, na=False)]
+        if not vinos_california.empty:
+            indice_maximo = vinos_california["price"].idxmax()
+            vino_maximo = vinos_california.loc[indice_maximo]
             with open(ruta_salida, "w", encoding="utf-8") as f:
-                f.write(f"Vino con precio más alto:\n{vino_precio_max}")
+                f.write("Vino más caro de California:\n")
+                f.write(str(vino_maximo))
             self.df.loc[9, "valor"] = ruta_salida
-            print("Vino con precio más alto:")
-            print(vino_precio_max)
+            print(f"El vino mas caro de california es:")
+            print(vino_maximo)
             print("***********************************************************************")
 
+
     def ejercicio11(self):
-        #¿Cuáles son los tipos de uva más comunes en California?
-        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+     #¿Cuáles son los tipos de uva más comunes en California?
+        ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
         ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_11.txt")
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
@@ -205,9 +217,10 @@ class ejercicios:
             print(uvas_california)
             print("***********************************************************************")
 
+
     def ejercicio12(self):
-        # ¿Cuáles son los 10 tipos de uva más comunes en California?
-        ruta_review = os.path.join(self.ruta_Actividad_3, "review.csv")
+     # ¿Cuáles son los 10 tipos de uva más comunes en California?
+        ruta_review = os.path.join(self.ruta_Actividad_3, "Ejercicio_4.csv")
         ruta_salida = os.path.join(self.ruta_Actividad_3, "Ejercicio_12.txt")
         if os.path.exists(ruta_review):
             review = pd.read_csv(ruta_review)
