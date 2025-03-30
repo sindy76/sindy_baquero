@@ -171,6 +171,95 @@ sym_diff_ab = group_a.symmetric_difference(group_b)
 print("group_a.symmetric_difference(group_b):", sym_diff_ab)
 print ("******************************************************************************")
 
+# 6. Operaciones con conjuntos
+group_a.add('Pepe')
+print("Después de add('Pepe'):", group_a)
+print ("******************************************************************************")
+group_a.remove('Marcos')
+print("Después de remove('Marcos'):", group_a)
+print ("******************************************************************************")
+pop_elem = group_a.pop()  # Elimina un elemento arbitrario (en el ejemplo, 'Pepe')
+print("Elemento extraído con pop():", pop_elem)
+print("group_a después de pop():", group_a)
+print ("******************************************************************************")
+pop_elem2 = group_a.pop()  # Por ejemplo, extrae 'Carlos'
+print("Elemento extraído con pop():", pop_elem2)
+print("group_a después del segundo pop():", group_a)
+print ("******************************************************************************")
+
+# Intentar eliminar un elemento inexistente con remove
+try:
+    group_a.remove('Pepe')
+except KeyError as e:
+    print("Error al ejecutar remove('Pepe'):", e)
+    print ("******************************************************************************")
+group_a.discard('Pepe')
+print("Después de discard('Pepe'):", group_a)
+print ("******************************************************************************")
+
+# Comparaciones entre conjuntos
+print("¿group_a > group_b?", group_a > group_b)
+print ("******************************************************************************")
+# Intentar sumar conjuntos con el operador + genera un error
+try:
+    resultado = group_a + group_b
+except TypeError as e:
+    print("Error al ejecutar group_a + group_b:", e)
+    print ("******************************************************************************")
+
+# Operadores lógicos or y and
+print("group_a or group_b:", group_a or group_b)
+print ("******************************************************************************")
+print("group_a and group_b:", group_a and group_b)
+print ("******************************************************************************")
+# Imprimir ambos conjuntos en una tupla
+print("group_a, group_b:", (group_a, group_b))
+print ("******************************************************************************")
+
+# 7. Uso de frozenset en Python
+# Los frozenset son conjuntos inmutables
+# 7.1 Crear un frozenset con los elementos de group_a
+frozen_a = frozenset(group_a)
+print("Frozenset de group_a:", frozen_a)
+print("******************************************************************************")
+
+# 7.2 Intentar agregar un elemento a un frozenset (esto generará un error)
+try:
+    frozen_a.add('NuevoElemento')
+except AttributeError as e:
+    print("Error al intentar agregar un elemento a frozenset:", e)
+print("******************************************************************************")
+
+# 7.3 Verificar si un elemento está en el frozenset
+print("¿'Marcos' está en frozen_a?", 'Marcos' in frozen_a)
+print("******************************************************************************")
+
+# 7.4 Crear un frozenset con diferentes tipos de elementos
+fs_mixed = frozenset([1, 45, 3j, 'hola'])
+print("Frozenset con elementos mixtos:", fs_mixed)
+print("******************************************************************************")
+
+# 7.5 Unión de conjuntos usando frozenset
+fs_union = frozen_a | frozenset(group_b)
+print("Unión de frozen_a con group_b:", fs_union)
+print("******************************************************************************")
+
+#7.6 Intersección entre conjuntos usando frozenset
+fs_intersection = frozen_a & frozenset(group_b)
+print("Intersección de frozen_a con group_b:", fs_intersection)
+print("******************************************************************************")
+
+# 7.8 Diferencia entre conjuntos usando frozenset
+fs_difference = frozen_a - frozenset(group_b)
+print("Diferencia de frozen_a con group_b:", fs_difference)
+print("******************************************************************************")
+
+# 7.9 Comparaciones
+print("¿frozen_a es subconjunto de group_b?", frozen_a.issubset(group_b))
+print("¿frozen_a es superconjunto de group_b?", frozen_a.issuperset(group_b))
+print("******************************************************************************")
+
+
 
     
 
